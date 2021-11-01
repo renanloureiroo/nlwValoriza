@@ -20,7 +20,11 @@ router.post(
   ensureAdmin,
   createTagController.handle
 )
-router.post("/compliment", createComplimentController.handle)
+router.post(
+  "/compliment",
+  ensureAuthenticated,
+  createComplimentController.handle
+)
 router.post("/users", createUserController.handle)
 router.post("/login", authenticateUserController.handle)
 export { router }
